@@ -1,11 +1,17 @@
 <script setup>
   import TemplateSyntax from './components/Template Syntax.vue';
+  import Reactivity_Fundamentals from './components/Reactivity Fundamentals.vue';
   import { ref } from 'vue';
 
- const templateSyntax = ref(true);
+ const templateSyntax = ref(false);
+ const reactivityFundamentals = ref(false);
 
  const displayTemplateSyntax = () => {
   templateSyntax.value = !templateSyntax.value;
+};
+
+const displayReactivityFundamentals = () => {
+  reactivityFundamentals.value = !reactivityFundamentals.value;
 };
 </script>
 
@@ -20,7 +26,9 @@
 
   <main>
     <button @click="displayTemplateSyntax" >TemplateSyntax</button>
+    <button @click="displayReactivityFundamentals" >Reactivity_Fundamentals</button>
     <TemplateSyntax v-if="templateSyntax"/>
+    <Reactivity_Fundamentals v-if="reactivityFundamentals"/>
   </main>
 </template>
 
