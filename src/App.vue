@@ -1,6 +1,12 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import TemplateSyntax from './components/Template Syntax.vue';
+  import { ref } from 'vue';
+
+ const templateSyntax = ref(true);
+
+ const displayTemplateSyntax = () => {
+  templateSyntax.value = !templateSyntax.value;
+};
 </script>
 
 <template>
@@ -8,12 +14,13 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <button @click="displayTemplateSyntax" >TemplateSyntax</button>
+    <TemplateSyntax v-if="templateSyntax"/>
   </main>
 </template>
 
