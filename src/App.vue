@@ -10,6 +10,7 @@ import EventHandling from './components/EventHandling.vue'
 import FormInputBindings from './components/FormInputBindings.vue';
 import LifecycleHooks from './components/LifecycleHooks.vue';
 import Watchers from './components/Watchers.vue';
+import TemplateRefs from './components/TemplateRefs.vue';
 
 
 const templateSyntax = ref(false);
@@ -22,6 +23,11 @@ const eventHandling = ref(false);
 const formInputBindings = ref(false);
 const lifecycleHooks = ref(false);
 const watchers = ref(false);
+const templateRefs = ref(false);
+
+const displayTemplateRefs = () => {
+  templateRefs.value = !templateRefs.value;
+}
 
 const displayWatchers = () => {
   watchers.value = !watchers.value;
@@ -113,6 +119,10 @@ const displayClassAndStyleBindings = () => {
       <div class="mb-3">
         <button type="button" class="btn btn-outline-primary" @click="displayWatchers">Watchers</button>
       </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayTemplateRefs">Template Refs</button>
+      </div>
     </div>
     <TemplateSyntax v-if="templateSyntax" />
     <classAndStyleBindings v-if="classAndStyleBindin" />
@@ -124,6 +134,7 @@ const displayClassAndStyleBindings = () => {
     <FormInputBindings v-if="formInputBindings" />
     <LifecycleHooks v-if="lifecycleHooks" />
     <Watchers v-if="watchers" />
+    <TemplateRefs v-if="templateRefs" />
   </main>
 </template>
 
