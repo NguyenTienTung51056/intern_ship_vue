@@ -73,7 +73,7 @@
 
     <!-- v-for with Component -->
     <h2>v-for with Component</h2>
-    <MyComponent
+    <ListChildren
       v-for="(item, index) in items"
       :item="item"
       :index="index"
@@ -91,6 +91,7 @@
 </template>
 
 <script setup>
+import ListChildren from './children/listchildren.vue';
 import { ref, reactive, computed } from 'vue';
 
 let parentMessage = 'Parent';

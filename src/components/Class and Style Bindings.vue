@@ -12,7 +12,7 @@
   
       <!-- With Components -->
       <h2>With Components</h2>
-      <MyComponent :class="{ active: isActive }" />
+      <ChildrenClassBinding :class="{ active: isActive }"  :classes="MyComponent"/>
   
       <!-- Binding Inline Styles -->
       <h2>Binding Inline Styles</h2>
@@ -26,7 +26,8 @@
   </template>
   
   <script setup>
-  import { ref, reactive, computed } from 'vue';
+  import { ref, reactive } from 'vue';
+  import ChildrenClassBinding from './children/ChildrenClassBinding.vue'
   
   // Binding to Objects
   const isActive = ref(true);
