@@ -1,45 +1,52 @@
 <script setup>
-  import TemplateSyntax from './components/Template Syntax.vue';
-  import Reactivity_Fundamentals from './components/Reactivity Fundamentals.vue';
-  import { ref } from 'vue';
-  import ComputedProperties from './components/Computed Properties.vue';
-  import classAndStyleBindings from './components/Class and Style Bindings.vue';
-  import ConditionalRendering from './components/Conditional Rendering.vue';
-  import ListRendering from './components/List_rendering.vue';
-  import EventHandling from './components/EventHandling.vue'
-  import FormInputBindings from './components/FormInputBindings.vue';
-  import LifecycleHooks from './components/LifecycleHooks.vue'; 
+import TemplateSyntax from './components/Template Syntax.vue';
+import Reactivity_Fundamentals from './components/Reactivity Fundamentals.vue';
+import { ref } from 'vue';
+import ComputedProperties from './components/Computed Properties.vue';
+import classAndStyleBindings from './components/Class and Style Bindings.vue';
+import ConditionalRendering from './components/Conditional Rendering.vue';
+import ListRendering from './components/List_rendering.vue';
+import EventHandling from './components/EventHandling.vue'
+import FormInputBindings from './components/FormInputBindings.vue';
+import LifecycleHooks from './components/LifecycleHooks.vue';
+import Watchers from './components/Watchers.vue';
 
- const templateSyntax = ref(false);
- const reactivityFundamentals = ref(false)  
- const computedProperties = ref(false);
- const classAndStyleBindin = ref(false);
- const conditionalRenderin = ref(false);
- const listRenderin = ref(false);
- const eventHandling = ref(false);
- const formInputBindings = ref(false);
-  const lifecycleHooks = ref(false);
 
-  const displayLifecycleHooks = () => {
-    lifecycleHooks.value = !lifecycleHooks.value;
-  }
+const templateSyntax = ref(false);
+const reactivityFundamentals = ref(false)
+const computedProperties = ref(false);
+const classAndStyleBindin = ref(false);
+const conditionalRenderin = ref(false);
+const listRenderin = ref(false);
+const eventHandling = ref(false);
+const formInputBindings = ref(false);
+const lifecycleHooks = ref(false);
+const watchers = ref(false);
 
-  const displayFormInputBindings = () => {
-    formInputBindings.value = !formInputBindings.value;
-  }
+const displayWatchers = () => {
+  watchers.value = !watchers.value;
+}
 
- const displayEventHandling = () => {
+const displayLifecycleHooks = () => {
+  lifecycleHooks.value = !lifecycleHooks.value;
+}
+
+const displayFormInputBindings = () => {
+  formInputBindings.value = !formInputBindings.value;
+}
+
+const displayEventHandling = () => {
   eventHandling.value = !eventHandling.value;
- }
+}
 
- const displayListRendering = () => {
+const displayListRendering = () => {
   listRenderin.value = !listRenderin.value;
- }
+}
 
- const displayConditionalRendering = () => {
+const displayConditionalRendering = () => {
   conditionalRenderin.value = !conditionalRenderin.value;
- }
- const displayTemplateSyntax = () => {
+}
+const displayTemplateSyntax = () => {
   templateSyntax.value = !templateSyntax.value;
 };
 
@@ -70,20 +77,24 @@ const displayClassAndStyleBindings = () => {
   <main>
     <div class="card d-flex justify-content-center align-items-center  shadow p-3 mb-5 bg-body rounded rounded border-0">
       <div class="mb-3">
-        <button class="btn btn-outline-primary" type="button" @click="displayTemplateSyntax" >Template Syntax</button>
+        <button class="btn btn-outline-primary" type="button" @click="displayTemplateSyntax">Template Syntax</button>
       </div>
 
       <div class="mb-3">
-        <button type="button" class="btn btn-outline-primary" @click="displayReactivityFundamentals" >Reactivity Fundamentals</button>
+        <button type="button" class="btn btn-outline-primary" @click="displayReactivityFundamentals">Reactivity
+          Fundamentals</button>
       </div>
       <div class="mb-3">
-        <button type="button" class="btn btn-outline-primary" @click="displayComputedProperties">Computed Properties</button>
+        <button type="button" class="btn btn-outline-primary" @click="displayComputedProperties">Computed
+          Properties</button>
       </div>
       <div class="mb-3">
-        <button type="button" class="btn btn-outline-primary" @click="displayClassAndStyleBindings">Class and Style Bindings</button>
+        <button type="button" class="btn btn-outline-primary" @click="displayClassAndStyleBindings">Class and Style
+          Bindings</button>
       </div>
       <div class="mb-3">
-        <button type="button" class="btn btn-outline-primary" @click="displayConditionalRendering">Conditional Rendering </button>
+        <button type="button" class="btn btn-outline-primary" @click="displayConditionalRendering">Conditional Rendering
+        </button>
       </div>
       <div class="mb-3">
         <button type="button" class="btn btn-outline-primary" @click="displayListRendering">List renderring</button>
@@ -92,21 +103,27 @@ const displayClassAndStyleBindings = () => {
         <button type="button" class="btn btn-outline-primary" @click="displayEventHandling">Event Handling</button>
       </div>
       <div class="mb-3">
-        <button type="button" class="btn btn-outline-primary" @click="displayFormInputBindings">Form Input Bindings</button>
+        <button type="button" class="btn btn-outline-primary" @click="displayFormInputBindings">Form Input
+          Bindings</button>
       </div>
       <div class="mb-3">
         <button type="button" class="btn btn-outline-primary" @click="displayLifecycleHooks">LifecycleHooks</button>
       </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayWatchers">Watchers</button>
+      </div>
     </div>
-    <TemplateSyntax v-if="templateSyntax"/>
+    <TemplateSyntax v-if="templateSyntax" />
     <classAndStyleBindings v-if="classAndStyleBindin" />
     <ComputedProperties v-if="computedProperties" />
-    <Reactivity_Fundamentals v-if="reactivityFundamentals"/>
-    <ConditionalRendering v-if="conditionalRenderin"/>
+    <Reactivity_Fundamentals v-if="reactivityFundamentals" />
+    <ConditionalRendering v-if="conditionalRenderin" />
     <ListRendering v-if="listRenderin" />
-    <EventHandling v-if="eventHandling"/>
-    <FormInputBindings v-if="formInputBindings"/>
+    <EventHandling v-if="eventHandling" />
+    <FormInputBindings v-if="formInputBindings" />
     <LifecycleHooks v-if="lifecycleHooks" />
+    <Watchers v-if="watchers" />
   </main>
 </template>
 
@@ -136,5 +153,4 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
-</style>
+}</style>
