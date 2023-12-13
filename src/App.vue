@@ -6,6 +6,7 @@
   import classAndStyleBindings from './components/Class and Style Bindings.vue';
   import ConditionalRendering from './components/Conditional Rendering.vue';
   import ListRendering from './components/List_rendering.vue';
+  import EventHandling from './components/EventHandling.vue'
 
  const templateSyntax = ref(false);
  const reactivityFundamentals = ref(false)  
@@ -13,6 +14,11 @@
  const classAndStyleBindin = ref(false);
  const conditionalRenderin = ref(false);
  const listRenderin = ref(false);
+ const eventHandling = ref(false);
+
+ const displayEventHandling = () => {
+  eventHandling.value = !eventHandling.value;
+ }
 
  const displayListRendering = () => {
   listRenderin.value = !listRenderin.value;
@@ -50,18 +56,37 @@ const displayClassAndStyleBindings = () => {
   </header>
 
   <main>
-    <button @click="displayTemplateSyntax" >TemplateSyntax</button>
-    <button @click="displayReactivityFundamentals" >Reactivity_Fundamentals</button>
-    <button @click="displayComputedProperties">Computed Properties</button>
-    <button @click="displayClassAndStyleBindings">Class and Style Bindings</button>
-    <button @click="displayConditionalRendering">Conditional Rendering </button>
-    <button @click="displayListRendering">List renderring</button>
+    <div class="card d-flex justify-content-center align-items-center  shadow p-3 mb-5 bg-body rounded rounded border-0">
+      <div class="mb-3">
+        <button class="btn btn-outline-primary" type="button" @click="displayTemplateSyntax" >Template Syntax</button>
+      </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayReactivityFundamentals" >Reactivity Fundamentals</button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayComputedProperties">Computed Properties</button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayClassAndStyleBindings">Class and Style Bindings</button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayConditionalRendering">Conditional Rendering </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayListRendering">List renderring</button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayEventHandling">Event Handling</button>
+      </div>
+    </div>
     <TemplateSyntax v-if="templateSyntax"/>
     <classAndStyleBindings v-if="classAndStyleBindin" />
     <ComputedProperties v-if="computedProperties" />
     <Reactivity_Fundamentals v-if="reactivityFundamentals"/>
     <ConditionalRendering v-if="conditionalRenderin"/>
     <ListRendering v-if="listRenderin" />
+    <EventHandling v-if="eventHandling"/>
   </main>
 </template>
 
