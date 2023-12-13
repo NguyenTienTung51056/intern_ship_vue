@@ -8,6 +8,7 @@
   import ListRendering from './components/List_rendering.vue';
   import EventHandling from './components/EventHandling.vue'
   import FormInputBindings from './components/FormInputBindings.vue';
+  import LifecycleHooks from './components/LifecycleHooks.vue'; 
 
  const templateSyntax = ref(false);
  const reactivityFundamentals = ref(false)  
@@ -16,7 +17,12 @@
  const conditionalRenderin = ref(false);
  const listRenderin = ref(false);
  const eventHandling = ref(false);
-const formInputBindings = ref(false);
+ const formInputBindings = ref(false);
+  const lifecycleHooks = ref(false);
+
+  const displayLifecycleHooks = () => {
+    lifecycleHooks.value = !lifecycleHooks.value;
+  }
 
   const displayFormInputBindings = () => {
     formInputBindings.value = !formInputBindings.value;
@@ -88,6 +94,9 @@ const displayClassAndStyleBindings = () => {
       <div class="mb-3">
         <button type="button" class="btn btn-outline-primary" @click="displayFormInputBindings">Form Input Bindings</button>
       </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayLifecycleHooks">LifecycleHooks</button>
+      </div>
     </div>
     <TemplateSyntax v-if="templateSyntax"/>
     <classAndStyleBindings v-if="classAndStyleBindin" />
@@ -97,6 +106,7 @@ const displayClassAndStyleBindings = () => {
     <ListRendering v-if="listRenderin" />
     <EventHandling v-if="eventHandling"/>
     <FormInputBindings v-if="formInputBindings"/>
+    <LifecycleHooks v-if="lifecycleHooks" />
   </main>
 </template>
 
