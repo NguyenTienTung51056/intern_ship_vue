@@ -7,6 +7,7 @@
   import ConditionalRendering from './components/Conditional Rendering.vue';
   import ListRendering from './components/List_rendering.vue';
   import EventHandling from './components/EventHandling.vue'
+  import FormInputBindings from './components/FormInputBindings.vue';
 
  const templateSyntax = ref(false);
  const reactivityFundamentals = ref(false)  
@@ -15,6 +16,11 @@
  const conditionalRenderin = ref(false);
  const listRenderin = ref(false);
  const eventHandling = ref(false);
+const formInputBindings = ref(false);
+
+  const displayFormInputBindings = () => {
+    formInputBindings.value = !formInputBindings.value;
+  }
 
  const displayEventHandling = () => {
   eventHandling.value = !eventHandling.value;
@@ -79,6 +85,9 @@ const displayClassAndStyleBindings = () => {
       <div class="mb-3">
         <button type="button" class="btn btn-outline-primary" @click="displayEventHandling">Event Handling</button>
       </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary" @click="displayFormInputBindings">Form Input Bindings</button>
+      </div>
     </div>
     <TemplateSyntax v-if="templateSyntax"/>
     <classAndStyleBindings v-if="classAndStyleBindin" />
@@ -87,6 +96,7 @@ const displayClassAndStyleBindings = () => {
     <ConditionalRendering v-if="conditionalRenderin"/>
     <ListRendering v-if="listRenderin" />
     <EventHandling v-if="eventHandling"/>
+    <FormInputBindings v-if="formInputBindings"/>
   </main>
 </template>
 
